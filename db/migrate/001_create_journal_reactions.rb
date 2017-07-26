@@ -5,6 +5,5 @@ class CreateJournalReactions < ActiveRecord::Migration
       t.string :body
       t.timestamps null: false
     end
-    add_index :journal_reactions, :journal_id
   end
 end
