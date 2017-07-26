@@ -1,3 +1,7 @@
-= reaction
+= Redmine Reaction Notes
 
-Description goes here
+This plugin provides reaction feature like Slack for notes.
+
+== License
+
+redmine_reaction_notes is available under the terms of the MIT License.
