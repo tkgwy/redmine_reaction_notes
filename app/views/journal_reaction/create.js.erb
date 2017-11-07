@@ -1,0 +1,9 @@
+// Rerender reactions
+var container = $('div#reaction-container-<%= @journal.id %>');
+container.empty();
+container.append('<%= escape_javascript(render partial: 'share/journal_reactions', locals: { journal: @journal }) %>');
+$('button.btn-reaction .plain-label-reaction').each(function(){
+    var emoji = wdtEmojiBundle.render(this.innerText);
+    $(this).replaceWith(emoji);
+});
+$('button.btn-reaction').children().removeAttr('title')
