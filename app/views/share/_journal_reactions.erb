@@ -1,9 +1,12 @@
 <%= form_tag({controller: 'journal_reaction', action: 'create', method: 'post'}, {remote: 'true'}) do %>
-  <% journal.journal_reactions.group(:id).group(:body).map{|v| {journal_reaction_id: v.id, body: v.body, users: v.journal_reaction_users.map{|v2| v2.user.name}}}.each do |obj| %>
-    <%= button_tag type: "submit", name: "body", id: "journal-reaction-" << obj[:journal_reaction_id] << "-btn", value: obj[:body], class: "btn-reaction" do %>
+  <% journal.journal_reactions.group(:id).group(:body).map{|v| 
+    {journal_reaction_id: v.id, body: v.body, users: v.journal_reaction_users}}.each do |obj| 
+  %>
+    <% reaction_class = "btn-reaction" << (obj[:users].any?{|u| u.user.id == User.current.id} ? " btn-reaction-included" : "") %>
+    <%= button_tag type: "submit", name: "body", id: "journal-reaction-" << obj[:journal_reaction_id] << "-btn", value: obj[:body], class: reaction_class do %>
       <span class="tooltip">
-        <% obj[:users].each_with_index do |user, i| %>
-          <b><%= user %></b><% if i == (obj[:users].size - 2) then %> and <% elsif i != (obj[:users].size - 1) %>, <% end %>
+        <% obj[:users].each_with_index do |u, i| %>
+          <b><%= u.user.name %></b><% if i == (obj[:users].size - 2) then %> and <% elsif i != (obj[:users].size - 1) %>, <% end %>
         <% end %>
         <br/>reacted with <%= obj[:body] %>
       </span>

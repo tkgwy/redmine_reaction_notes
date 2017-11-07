@@ -22,6 +22,11 @@ button.btn-reaction {
   border: solid thin #dddddd;
 }
 
+button.btn-reaction.btn-reaction-included {
+  background-color: #efffff;
+  color: #00aaff
+}
+
 button.btn-reaction:hover {
   border-color: #00aaff;
   cursor: pointer;
