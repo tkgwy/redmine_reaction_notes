@@ -3,7 +3,7 @@
 </div>
 
 <script>
-var createButton = '<a title="Reaction" id="journal-<%= journal.id %>-reaction" class="icon-reaction icon-only" data-remote="true" rel="nofollow" data-method="post" href="/journal_reaction/create?journal_id=<%= journal.id %>&body=:smile:">Reaction</a>'
+var createButton = '<div id="journal-<%= journal.id %>-reaction-container" class="icon-reaction"><div title="Reaction" id="journal-<%= journal.id %>-reaction" class="hidden-picker"></div></div>'
 $("div#journal-<%= journal.id %>-notes div.contextual").prepend(createButton);
 </script>
 

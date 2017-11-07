@@ -1,6 +1,14 @@
 .icon-reaction {
-  background: url(../images/smile.png);
-  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 16px;
+  margin-right: 5px;
+}
+
+.wdt-emoji-picker {
+  position: initial !important;
+  right: 0;
+  bottom: 0;
 }
 
 button.btn-reaction {
