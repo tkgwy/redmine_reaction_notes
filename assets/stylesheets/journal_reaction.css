@@ -1,0 +1,59 @@
+.icon-reaction {
+  background: url(../images/smile.png);
+  margin-right: 10px;
+}
+
+button.btn-reaction {
+  padding: 5px;
+  color: #bbbbbb;
+  position: relative;
+  background-color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: solid thin #dddddd;
+}
+
+button.btn-reaction:hover {
+  border-color: #00aaff;
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: none;
+}
+
+button.btn-reaction span.tooltip {
+  display: none;
+}
+
+button.btn-reaction:hover span.tooltip {
+  display: block;
+  position: absolute;
+  margin: 5px;
+  padding: 5px;
+  background-color: #000000;
+  top: 25px;
+  width: 200px;
+  color: #eeeeee;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+button.btn-reaction:hover span.tooltip:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -13px;
+  left: 15px;
+  border: 13px transparent solid;
+  border-right-width: 0;
+  border-left-color: #000000;
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -o-transform:rotate(270deg);
+  z-index: 100;
+}
+

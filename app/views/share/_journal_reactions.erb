@@ -1,0 +1,14 @@
+<%= form_tag({controller: 'journal_reaction', action: 'create', method: 'post'}, {remote: 'true'}) do %>
+  <% journal.journal_reactions.group(:id).group(:body).map{|v| {journal_reaction_id: v.id, body: v.body, users: v.journal_reaction_users.map{|v2| v2.user.name}}}.each do |obj| %>
+    <%= button_tag type: "submit", name: "body", id: "journal-reaction-" << obj[:journal_reaction_id] << "-btn", value: obj[:body], class: "btn-reaction" do %>
+      <span class="tooltip">
+        <% obj[:users].each_with_index do |user, i| %>
+          <b><%= user %></b><% if i == (obj[:users].size - 2) then %> and <% elsif i != (obj[:users].size - 1) %>, <% end %>
+        <% end %>
+        <br/>reacted with <%= obj[:body] %>
+      </span>
+      <span class="plain-label-reaction"><%= obj[:body] %></span> <span class="reaction-size"><%= obj[:users].size %></span>
+    <% end %>
+  <% end %>
+  <input type="hidden" name="journal_id" value="<%= journal.id %>">
+<% end %>

@@ -1,0 +1,9 @@
+<div id="reaction-container-<%= journal.id %>">
+  <%= render partial: 'share/journal_reactions', locals: { journal: journal } %>
+</div>
+
+<script>
+var createButton = '<a title="Reaction" id="journal-<%= journal.id %>-reaction" class="icon-reaction icon-only" data-remote="true" rel="nofollow" data-method="post" href="/journal_reaction/create?journal_id=<%= journal.id %>&body=:smile:">Reaction</a>'
+$("div#journal-<%= journal.id %>-notes div.contextual").prepend(createButton);
+</script>
+

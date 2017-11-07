@@ -1,5 +1,6 @@
 require 'model/journal_patch'
 require 'model/user_patch'
+require 'hooks/journal_reaction_hook_listener'
 Redmine::Plugin.register :redmine_reaction_notes do
   name 'Redmine Reaction Notes plugin'
   author 'Yosuke Takigawa'
